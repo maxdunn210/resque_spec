@@ -30,6 +30,10 @@ module ResqueSpec
     end
   end
 
+  def push(queue_name, klass)
+    perform_or_store(queue_name, klass)
+  end
+
   def pop(queue_name)
     return unless payload = queue_by_name(queue_name).shift
     new_job(queue_name, payload)

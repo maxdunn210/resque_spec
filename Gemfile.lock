@@ -1,12 +1,12 @@
 PATH
   remote: .
   specs:
-    resque_spec (0.13.0)
+    resque_spec (0.13.0.md)
       resque (>= 1.19.0)
       rspec (>= 2.5.0)
 
 GEM
-  remote: http://rubygems.org/
+  remote: https://rubygems.org/
   specs:
     archive-tar-minitar (0.5.2)
     columnize (0.3.6)

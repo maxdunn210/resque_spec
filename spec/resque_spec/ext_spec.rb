@@ -25,6 +25,16 @@ describe "Resque Extensions" do
       end
     end
 
+    describe "#push" do
+      before do
+        Resque.push(Person, Person.new)
+      end
+
+      it "adds to the queue for the given class" do
+        ResqueSpec.queue_for(Person).should_not be_empty
+      end
+    end
+
     describe '#peek' do
       before do
         Resque.enqueue(Person, first_name, last_name)
@@ -336,6 +346,14 @@ describe "Resque Extensions" do
         it "calls the original Resque.enqueue_to method" do
           Resque.should_receive(:enqueue_to_without_resque_spec).with(:specified, Person, first_name, last_name)
           Resque.enqueue_to(:specified, Person, first_name, last_name)
+        end
+      end
+
+      describe ".push" do
+        it "calls the original Resque.push method" do
+          person = Person.new
+          Resque.should_receive(:push_without_resque_spec).with(Person, person)
+          Resque.push(Person, person)
         end
       end
 

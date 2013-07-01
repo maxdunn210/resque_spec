@@ -236,6 +236,16 @@ describe ResqueSpec do
     end
   end
 
+  describe "#push" do
+    let(:klass) { Person }
+    let(:queue_name) { :queue_name }
+
+    it "pushes the klass and args" do
+      ResqueSpec.push(queue_name, klass)
+      ResqueSpec.queue_by_name(queue_name).should include(Person)
+    end
+  end
+
   describe "#pop" do
     subject { ResqueSpec.pop(:queue_name) }
 

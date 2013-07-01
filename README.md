@@ -9,6 +9,12 @@ ResqueSpec will also fire Resque hooks if you are using them. See below.
 
 The current version works with `Resque v1.19.0` and up and `RSpec v2.5.0` and up.
 
+MD Jun-2013 Changes
+-------
+
+Added support for 'push' command to be able to test resque-waiting-room.
+
+
 Install
 -------
 

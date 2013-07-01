@@ -32,6 +32,7 @@ module Resque
   alias :enqueue_without_resque_spec :enqueue
   alias :enqueue_to_without_resque_spec :enqueue_to if Resque.respond_to? :enqueue_to
   alias :reserve_without_resque_spec :reserve
+  alias :push_without_resque_spec :push
   alias :peek_without_resque_spec :peek
   alias :size_without_resque_spec :size
 
@@ -54,6 +55,11 @@ module Resque
       run_after_enqueue(klass, *args)
       true
     end
+  end
+
+  def push(klass, *args)
+    return push_without_resque_spec(klass, *args) if ResqueSpec.disable_ext
+    ResqueSpec.push(klass, *args)
   end
 
   def peek(queue, start = 0, count = 1)

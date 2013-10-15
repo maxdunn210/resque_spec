@@ -1,3 +1,21 @@
+## On master
+
+* Use pry instead of debugger
+
+## 0.14.2 (2013-08-10)
+
+* #76 - Loosen rubygems version constraint (@Empact)
+
+## 0.14.1 (2013-08-07)
+
+* #75 - Add license statement to gemspec
+
+## 0.14.0 (2013-08-07)
+
+* Add ResqueMailer examples to README (@yuyak)
+* #70 - RSpec 2.1x support (@ozeias)
+* #73 - Replace `rspec` dependency with explicit dependencies (@andresbravog)
+
 ## 0.13.0 (2013-01-07)
 
 * #9 - Add `resque_spec/cucumber` to expose `with_resque` helpers to `World`
